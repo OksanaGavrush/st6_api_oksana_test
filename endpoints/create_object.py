@@ -14,19 +14,18 @@ PAYLOAD = {
 }
 
 
-class CreatePublication(BaseEndpoint):
+class CreateObject(BaseEndpoint):
+    response_data = None
 
     @allure.step("Send POST request and validate response")
-    def create_new_publication(self, payload=None):
+    def create_new_object(self, payload=None):
         payload = payload if payload else PAYLOAD
         self.response = requests.post('https://api.restful-api.dev/objects', json=payload)
         self.status_code = self.response.status_code
         self.response_js = self.response.json()
+        self.response_data = PayloadModel(**self.response.json())
 
     @allure.step("Check name is correct")
     def check_name_is(self, name):
-        assert self.response_js['name'] == name
+        assert self.response_data.name == name
 
-    @allure.step("Validate response schema")
-    def check_response_json_shema(self):
-        PayloadModel(**self.response.json())

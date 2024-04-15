@@ -3,7 +3,7 @@ import allure
 from endpoints.base_endopoint import BaseEndpoint
 
 
-class GetPublication(BaseEndpoint):
+class GetObject(BaseEndpoint):
 
     @allure.step("Send GET request and validate response")
     def get_by_id(self, post_id):

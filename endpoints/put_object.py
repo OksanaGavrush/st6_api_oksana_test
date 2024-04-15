@@ -3,7 +3,7 @@ from endpoints.base_endopoint import BaseEndpoint
 import requests
 
 
-class PutPublication(BaseEndpoint):
+class PuttObject(BaseEndpoint):
 
     @allure.step("Prepare payload")
     def put_obj_by_id(self, post_id, payload=None):

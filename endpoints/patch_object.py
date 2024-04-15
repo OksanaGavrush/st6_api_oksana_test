@@ -3,7 +3,7 @@ import allure
 from endpoints.base_endopoint import BaseEndpoint
 
 
-class PatchPublication(BaseEndpoint):
+class PatchObject(BaseEndpoint):
     @allure.step("Send PATCH request")
     def patch_obj_by_id(self, post_id, payload):
         self.response = requests.patch(f'https://api.restful-api.dev/objects/{post_id}', json=payload)
@@ -14,3 +14,4 @@ class PatchPublication(BaseEndpoint):
     def validate_patch_response(self, expected_name):
         # assert self.status_code == 200, 'Status code is not OK'
         assert self.response_js['name'] == expected_name, 'The name is not correct'
+
