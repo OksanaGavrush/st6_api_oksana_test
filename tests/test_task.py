@@ -69,10 +69,4 @@ class TestMethod(BaseTest):
         self.get_endpoint.get_by_id(post_id)
         self.get_endpoint.check_response_is_404()
 
-    def test_end_to_end(self, create_object, get_object, delete_object,
-                        patch_object, put_object):
-        create_object.create_new_object()
-        post_id = create_object.response_js['name']
-        delete_object.delete_object(post_id)
-        get_object.get_by_id(post_id)
-        get_object.check_response_is_404()
+

@@ -16,26 +16,4 @@ def post_id():
     obj.delete_object(post_id=post_id)
 
 
-@pytest.fixture()
-def create_object():
-    return CreateObject()
 
-
-@pytest.fixture()
-def get_object():
-    return GetObject()
-
-
-@pytest.fixture()
-def put_object():
-    return PuttObject()
-
-
-@pytest.fixture()
-def patch_object():
-    return PatchObject()
-
-
-@pytest.fixture()
-def delete_object():
-    return DeleteObject()
